@@ -1,0 +1,53 @@
+{% block header %}
+  <nav class="container mb-4">
+    <header class="navbar navbar-dark navbar-expand-lg fixed-top bg-black bg-opacity-50">
+      <div class="container-fluid justify-content-between">
+        <a href="{{ path('app_login')}}" class="col-md-3 mb-2 mb-md-0 text-decoration-none text-center">
+          <img src="{{ asset('assets/images/icons/dawan.png') }}" alt="Logo de dawan" class="rounded-circle w-50 h-50">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end text-bg-dark bg-opacity-75" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body justify-content-around">
+            <ul class="navbar-nav nav col-12 col-md-auto mb-2 mb-md-0">
+              <li><a href="{{ path('app_login') }}" class="nav-link px-2 active">Accueil</a></li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle px-2 active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Création
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark bg-black">
+                  <li><a class="dropdown-item" href="/admin/register/user">Créer un utilisateur</a></li>
+                  <li><a class="dropdown-item" href="/admin/register/structure">Créer une salle de sport</a></li>
+                  <li><a class="dropdown-item" href="/admin/register/permission">Créer un module</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="/admin/register/permissions-users">Ajouter un module à un utilisateur</a></li>
+                  <li><a class="dropdown-item" href="/admin/register/permissions-structures">Ajouter un module à une salle de sport</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle px-2 active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Gestion
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark bg-black">
+                  <li><a class="dropdown-item" href="/admin/user/read-all">Gérer les utilisateurs</a></li>
+                  <li><a class="dropdown-item" href="/admin/structure/read-all">Gérer les salles de sports</a></li>
+                  <li><a class="dropdown-item" href="/admin/permission/read-all">Gérer les modules</a></li>
+                </ul>
+              </li>
+              <li><a href="/manager/searchable/" class="nav-link px-2 active">Recherche</a></li>
+              <li><a href="/CGU" class="nav-link px-2 active">CGU</a></li>
+            </ul>
+            <div class="d-flex px-2">
+              <a href="{{ path('app_logout') }}" class="btn btn-outline-light me-2">Déconnexion</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  </nav>
+{% endblock %}

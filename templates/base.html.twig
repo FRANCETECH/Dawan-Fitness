@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- Meta tag for the responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{% block title %}L'orange bleue{% endblock %}</title>
+  {% block metaDescription %}{% endblock %}
+  <!-- START: Link tag for the favicon --> 
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/images/icons/orange0732.png') }}" class="rounded-circle">
+  <!-- END: Link tag for the favicon --> 
+  <!-- START: Link tag for the font google Noto sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- END: Link tag for the font google Noto sans -->
+  <!-- START: Link tag for the font google Pacifico -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+  <!-- END: Link tag for the font google Pacifico -->
+  <!-- Link tag for the stylesheet -->
+  {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
+  {% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}
+  {% block javascripts2 %}{% endblock %}
+</head>
+{% block body %}
+<body>
+  {% block header %}{% endblock %}
+  {% block main %}{% endblock %}
+  {% block footer %}{% endblock %}
+</body>
+{% endblock %}
+</html>

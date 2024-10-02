@@ -1,0 +1,22 @@
+<h1>Bienvenue  {{ name }}!</h1>
+
+<p>Toute l'équipe de Dawan vous souhaite une belle réussite.</p>
+<p>
+  Vous êtes inscrit en tant 
+    {% if role == ["ROLE_PARTNER"] %}
+      que partenaire.
+    {% elseif role == ["ROLE_ADMIN"] %}
+      qu'administrateur technique.
+    {% else %}
+      que manager.
+    {% endif %}
+  {% for structure in structures %}
+    {% if structure != "" %}
+      Vous êtes rattaché à la structure {{ structure.name }}.
+    {% endif %}
+  {% endfor %}
+  Vous pouvez vous rendre sur votre application à cette adresse https://lorange-bleue.herokuapp.com et vous connecter avec votre identifiant suivant : {{ mail }}. Votre mot de passe vous sera communiqué en privé.
+</p>
+<p>Vous retrouverez toutes les informations relatives à votre contrat, et vous pourrez gérer les différentes fonctionnalités choisies.</p>
+<p>Nous vous souhaitons une excellente journée.</p>
+<p>ParDawan</p>

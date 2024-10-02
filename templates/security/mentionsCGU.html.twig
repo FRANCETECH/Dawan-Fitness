@@ -1,0 +1,109 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ parent() }} - CGU{% endblock %}
+{% block metaDescription %}<meta name="description" content="Ceux sont nos conditions générales d'utilisations de l'orange bleue. Vous trouverez ici le détail de l'utilisation de vos données, de la gestion de ce site, ainsi que toutes les informations relatives aux données sensibles.">{% endblock %}
+{% block body %}
+<body 
+  class="flex-column bg-black text-white" 
+  style="
+    padding-top: 4rem;
+    width: 100%; 
+    background-attachment: fixed;
+    background-image: url({{ asset('assets/images/carousel04.jpg') }}); 
+    background-size: cover; 
+    background-position: center;
+  "
+>
+{% if user.roles != ['ROLE_ADMIN', 'ROLE_MANAGER']  %} 
+  {% include "manager/_header.html.twig" %}
+{% else %}
+  {% include "admin/_header.html.twig" %}
+{% endif %}
+{% block main %}
+<main class="container text-center">
+<h1 class="text-center m-4">Conditions générales d'utilisation</h1>
+<div class="bg-black bg-opacity-50 p-3 rounded">
+<h3>1. Conditions générales d’utilisation du site et des services proposés.</h3>
+<h4>a. Description des services fournis</h4>
+<p>L’utilisation du site lorangebleue.fr implique l’acceptation pleine et entière des conditions générales d’utilisation ci-après décrites.
+Ce site est normalement accessible à tout moment aux utilisateurs. Une interruption pour raison de maintenance technique peut être toutefois être décidée par OB RESEAUX, qui s’efforcera alors de communiquer préalablement aux utilisateurs les dates et heures de l’intervention.
+Le site est mis à jour régulièrement par OB RESEAUX. De la même façon, les mentions légales, conditions générales d’utilisation et de vente, peuvent être modifiées à tout moment : elles s’imposent néanmoins à l’utilisateur qui est invité à s’y référer à chaque connexion afin d’en prendre connaissance.</p>
+
+<h4>b. Description des services fournis</h4>
+<p>Le site lorangebleue.fr a pour objet de fournir une information concernant l’ensemble des services et prestations de l’enseigne l’Orange bleue et ses marques dérivées ainsi que sur les sociétés exploitant sous l’enseigne L’ORANGE BLEUE.
+OB RESEAUX s’efforce de fournir sur le site lorangebleue.fr des informations aussi précises que possible. Toutefois, elle ne pourra être tenue responsable des omissions, des inexactitudes et des carences dans la mise à jour, qu’elles soient de son fait ou du fait des tiers qui lui fournissent ces informations.
+Toutes les informations indiquées sur le site lorangebleue.fr sont données à titre indicatif, et sont susceptibles d’évoluer. Par ailleurs, les renseignements figurant sur le site lorangebleue.fr ne sont pas exhaustifs. Ils sont donnés sous réserve de modifications ayant été apportées depuis leur mise en ligne.</p>
+
+<h3>2. Limitations contractuelles sur les données techniques.</h3>
+<h4>a. Utilisation frauduleuse ou inexacte du site</h4>
+<p>OB RESEAUX ne pourra être tenu responsable de dommages matériels liés à l’utilisation du site.
+L’utilisateur du site s’engage à accéder au site en utilisant un matériel récent, ne contenant pas de virus et avec un navigateur de dernière génération mis-à-jour.
+L’utilisateur est averti que l’utilisation non conforme du site est interdite.
+L’utilisation du SPAM est totalement interdite.
+La société OB RESEAUX se réserve le droit de suspendre sans préavis l’accès au site internet à l’utilisateur, lorsque des envois massifs de courriels portent atteinte à l’intégrité et/ou à la sécurité du site https://www.lorangebleue.fr/, de même en cas de plainte d’un tiers concernant un e-mail envoyé à partir des installations du site https://lorangebleue.fr/ ou comportant les URL des sites propriétés de la société OB RESEAUX.
+En cas de non respect des dispositions ci-dessous, l’utilisateur reconnait que la société OB RESEAUX est en droit de limiter, de restreindre, d’interrompre ou de suspendre définitivement tout ou partie du service mis en cause sans préavis, voire rompre définitivement le droit d’accès au site concerné à l’utilisateur.
+La société OB RESEAUX ne pourra pas être tenue pour responsable de toute perte ou dégradation subi par le courrier transitant par le service https://www.lorangebleue.fr/contact. L’utilisateur reconnaît à la société OB RESEAUX le droit de ne pas faire suivre tout courrier de nature publicitaire ou commerciale.
+OB RESEAUX ne pourra pas être tenue responsable des dommages indirects (tels par exemple qu’une perte de marché ou perte d’une chance) consécutifs à l’utilisation du site http://lorangebleue.fr/.</p>
+
+<h4>b. Protection des droits de Propriété intellectuelle et sanctions pour contrefaçons.</h4>
+<p>L’ensemble des données, marques, logos, textes, informations, images, photographies ou tout autre contenu quel qu’il soit, diffusé sur le site fait l’objet d’une protection au titre du droit de la propriété intellectuelle. 
+Toute reproduction, représentation, utilisation ou adaptation, sous quelque forme que ce soit, de tout ou partie des éléments du site sans l´accord écrit d’OB RESEAUX est constitutif d´un acte de contrefaçon sanctionné par le Code de la Propriété Intellectuelle.
+L’article L.713-2 du Code de la Propriété Intellectuelle dispose en effet: « Sont interdits, sauf autorisation du propriétaire: a) La reproduction, l’usage ou l’apposition d’une marque, même avec l’adjonction de mots tels que : « formule, façon, système, imitation, genre, méthode~ ainsi que l’usage d’une marque reproduite, pour des produits ou services identiques à ceux désignés dans l’enregistrement ( … ) ».
+Et l’article L.713-2 du même code: « Sont interdits, sauf autorisation du propriétaire, s'il peut en résulter un risque de confusion dans l'esprit du public :
+a) La reproduction, l'usage ou l'apposition d'une marque, ainsi que l'usage d'une marque reproduite, pour des produits ou services similaires à ceux désignés dans l'enregistrement ;
+b) L'imitation d'une marque et l'usage d'une marque imitée, pour des produits ou services identiques ou similaires à ceux désignés dans l'enregistrement ».
+Aux termes de l’article L.716-1 du Code de la Propriété Intellectuelle: « L'atteinte portée au droit du propriétaire de la marque constitue une contrefaçon engageant la responsabilité civile de son auteur. Constitue une atteinte aux droits de la marque la violation des interdictions prévues aux articles L. 713-2, L. 713-3 et L. 713-4.».
+Toute exploitation non autorisée du contenu du site ou de l’un de ses éléments au sens de l’article L335-2 du code de la propriété intellectuelle , sera considérée comme constitutive d’une contrefaçon et pourra faire l’objet de poursuites.</p>
+
+<h4>c. Interruption temporaire ou définitive du site</h4>
+<p>OB RESEAUX se réserve le droit d’interrompre le site, notamment si ce dernier constitue un danger pour le maintien de la sécurité de la plate-forme d’hébergement, que ce soit suite à un piratage dudit site, ou à la suite d’une non-installation de mise à jour d’application ayant pour conséquence la détection d’une faille dans la sécurité du système. OB RESEAUX s’engage à rétablir la connexion, si elle est possible, dans les meilleurs délais.
+OB RESEAUX ne pourra être tenue pour responsable à quelque titre que ce soit quant à la suppression partielle ou définitive du site concerné.
+OB RESEAUX ne pourra être tenue responsable envers les partenaires licenciés, affiliés ou autres de l’introduction d’un virus informatique sur le Service.</p>
+
+<h4>d. Gestion des données personnelles</h4>
+<p>En France, les données personnelles sont notamment protégées par la loi n° 78-87 du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés et par le règlement européen sur la protection des données (RGPD) du 25 mai 2018
+<br>
+L’utilisateur est informé que toute information qu’il communique sur le site fait l’objet d’un traitement de l’information conforme au RGPD et à la  loi « informatique et libertés ».
+De sorte que l’utilisateur possède un droit de modification, de rectification, de consultation et de suppression des données qu’il transmet et ce, à tout moment par le biais de l’adresse https://www.lorangebleue.fr/contact. La demande de l’utilisateur fera systématiquement l’objet d’une réponse sous quinzaine. En cas d’impossibilité de modification ou de suppression des données visées, il sera indiqué à l’utilisateur l’objectif et la durée de conservation de ces dernières. Ces droits peuvent aussi être exercés par courrier à l’adresse suivante : 4 rue Nikola Tesla – 35000 RENNES. En tout état de cause OB RESEAUX ne collecte que des informations personnelles non sensibles relatives à l’utilisateur uniquement pour les besoins des services proposés par le site https://lorangebleue.fr/ L’utilisateur fournit ces informations en toute connaissance de cause, notamment lorsqu’il procède par lui-même à leur saisie. Il est alors précisé à l’utilisateur du site https://lorangebleue.fr/ l’obligation ou non de fournir ces informations. Aucune information personnelle de l’utilisateur du site https://lorangebleue.fr/ n’est publiée à l’insu de l’utilisateur, échangée, transférée, cédée ou vendue sur un support quelconque à des tiers. Seule l’hypothèse du rachat de OB RESEAUX et de ses droits permettrait la transmission des dites informations à l’éventuel acquéreur qui serait à son tour tenu de la même obligation de conservation et de modification des données vis à vis de l’utilisateur du site https://lorangebleue.fr/.</p>
+
+<h4>e. Liens hypertextes et cookies</h4>
+<p>Les fonctionnalités de Google Analytics pour les annonceurs sont activées pour ce site (Remarketing). Google utilise des cookies pour diffuser nos annonces sur le réseau de recherche Google, les partenaires du Réseau de recherche ainsi que sur les sites de son réseau Display. Grâce au cookie DoubleClick, Google adapte les annonces diffusées aux utilisateurs en fonction de leur navigation sur notre site et prenant en compte la navigation multi-appareils. l’utilisateur désactiver cette fonctionnalité en se rendant sur le gestionnaire de préférences pour les annonces. Le cookie analytique Realytics est un cookie de mesure d’audience et statistiques, de ce fait exempt de consentement selon la CNIL, utilisé pour mesurer la performance des campagnes TV des annonceurs sur le digital. En plus de la mesure, Realytics offre des solutions d’optimisation ou de mesure d’audience avancée qui peuvent nécessiter de recueillir un consentement libre, explicite et non équivoque de l’utilisateur. Realytics devient alors un fournisseur de données pour les partenaires de l’annonceur, qui doit s'assurer de la conformité du partenaire opérant. Dans les 2 cas, le cookie Realytics s’engage à respecter les données collectées et à ne collecter aucune donnée personnelle ou sensible et peut être désactivé depuis la page opt-out de Realytics.
+https://lorangebleue.fr/ utilise des cookies. Ils permettent la réalisation d´achats en ligne, l´optimisation du site internet et sa personnalisation en fonction de l´utilisateur. Cette page décrit pourquoi les cookies sont utilisés et comment ils fonctionnent. Les cookies sont de petits fichiers de données envoyés par un site internet et stockés dans le navigateur de l´internaute. Ils permettent de sauvegarder temporairement des informations concernant les visites et visiteurs du site. Ainsi, chaque fois que l´utilisateur se rend sur un même site, les données de sa précédente visite sont récupérées. Les cookies ne génèrent et ne transmettent pas de virus. Certains cookies sont indispensables à l´utilisation du site, d´autres permettent d´optimiser et de personnaliser les contenus affichés. Les cookies permettent d´optimiser l´utilisation du site en : affichant les paramètres de navigation pertinents pour l´utilisateur, récupérant les préférences de l´utilisateur (pays, langue…), résolvant les bugs ou permettant la récupération rapide d´informations utiles, limitant le nombre de publicités affichées. Le site https://lorangebleue.fr/ fait le lien entre les informations stockées par les cookies et celles fournies par l’utilisateurs ; ainsi que celles collectées par le site, conformément à la politique de confidentialité OB RESEAUX. Lorsque l’utilisateur navigue sur le site https://lorangebleue.fr/il autorise par défaut OB RESEAUX à stocker des cookies dans son navigateur. Si l’utilisateur ne souhaite pas que le site https://lorangebleue.fr/ stocke des cookies dans son navigateur, il peut désactiver les cookies en modifiant les paramètres ou options de son navigateur. Il se peut alors que certaines pages d´https://lorangebleue.fr/ ne fonctionnent pas correctement (voir les détails ci-dessous). Le site https://lorangebleue.fr/ contient un certain nombre de liens hypertextes vers d’autres sites, mis en place avec l’autorisation d’OB RESEAUX. Cependant, OB RESEAUX n’a pas la possibilité de vérifier le contenu des sites ainsi visités, et n’assumera en conséquence aucune responsabilité de ce fait.</p>
+
+<h4>f. Loi applicable – juridiction</h4>
+<p>Les présentes conditions d’utilisations du site https://lorangebleue.fr/ sont régies par la loi française. En cas de litige, les tribunaux compétents seront du ressort de Rennes.</p>
+
+<h3>Mentions légales</h3>
+<p>En vertu de l’article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l’économie numérique, il est précisé aux utilisateurs du site https://lorangebleue.fr/, l’identité des différents intervenants dans le cadre de sa réalisation et de son suivi :
+<br>
+Propriétaire, créateur, responsable de publication :
+<br>
+Société OB RESEAUX Société par actions simplifiée au capital de 959 300 euros
+Siège social 4 rue Nikola Tesla Z.I Lorient 35000 RENNES
+Téléphone : 02 99 14 60 64
+Immatriculée au R.C.S. de RENNES sous le numéro 489 920 249 000 13 Représentée par son gérant, Monsieur Thierry MARQUER.
+Propriétaire de l’enseigne l’Orange Bleue Mon Coach Fitness, l’Orange Bleue Mon Coach Wellness et ses dérivés pour l’avoir enregistrée à l’INPI le 19 février 2014 sous le n°4070287.
+<br>
+Concepteur du site :
+<br>
+YesWeDev 8 Quai Robinot de Saint-Cyr, 35000 Rennes Yes We Dev - OUR REAL WINS SAS
+SAS au capital de 20 000 €
+Programmation informatique (6201Z)
+RCS 801 172 776 Rennes
+www.yeswedev.bzh
+<br>
+Hébergement :
+<br>
+Le site est hébergé sur Digital Ocean.
+<br>
+Distributeur - Intermédiaire en opération de banque -vente en ligne :
+Leetchi Corp. S.A., société anonyme de droit luxembourgeois, au capital de 500 000 euros, dont le siège social est situé 14 Rue Aldringen, L-1118 Luxembourg et immatriculée au Registre du commerce et des sociétés luxembourgeois sous le numéro B173459, habilitée à exercer son activité en France en libre établissement, en qualité d’établissement de monnaie électronique agréé par la Commission de Surveillance du Secteur Financier, 110 route d’Arlon L-1150 Luxembourg, www.cssf.lu, La société est intermédiaire en opérations de banque et services de paiement à l’Orias. Son immatriculation est consultable sur le site: https://www.orias.fr/welcome.
+<br>
+Utilisateurs :
+<br>
+Les utilisateurs du site désignent les prospects, les adhérents, les partenaires licenciés, les salariés ainsi que toute personne pouvant avoir une utilisation commerciale ou informative du site à quelque titre que ce soit.</p>
+</div>
+</main>
+{% endblock %}
+{% include "admin/_footer.html.twig" %}
+</body>
+{% endblock %}

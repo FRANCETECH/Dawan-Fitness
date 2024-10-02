@@ -1,0 +1,88 @@
+h1 {
+  font-size: 1.7rem;
+  margin: 0rem;
+}
+
+main .container__element--searchBar {
+  background-color: #8BD8BD;
+  border-radius: 1rem;
+  box-shadow: 1rem 1rem 1rem #000000;
+  color: #043565;
+  font-size: 1rem;
+  margin: 2rem 1rem 0rem 1rem;
+  padding: 1rem;
+  text-align: center;
+}
+main .container__element--searchBar input {
+  margin: 0.3rem;
+}
+main .container__element--searchBar h3 {
+  margin: 0.5rem 0 0 0;
+}
+main .container__element--searchBar #filters {
+  display: inline-block;
+}
+main .content {
+  margin: 1rem;
+}
+main .content div {
+  background-color: #8BD8BD;
+  border-radius: 1rem;
+  box-shadow: 1rem 1rem 1rem #000000;
+  color: #043565;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 2rem 1rem 0rem 1rem;
+  padding: 1rem;
+  text-align: center;
+}
+main .content div div {
+  background-color: #043565;
+  box-shadow: 0.4rem 0.4rem 0.4rem #000000;
+  margin: 1rem 3.5rem 1rem 3.5rem;
+  padding: 0.6rem;
+}
+main .content div .main__div--button:hover {
+  color: #ffffff;
+}
+
+.highlighted {
+  background-color: #2BA6CB;
+  color: #ffffff;
+}
+
+/* RESPONSIVE */
+/* FOR I-PAD AND TABLET */
+@media screen and (min-width: 700px) {
+  .content div {
+    margin: 3rem 6rem 3rem 6rem;
+  }
+}
+@media screen and (min-width: 700px) and (orientation: landscape) {
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  main .container__element--searchBar {
+    width: 30rem;
+  }
+}
+/* FOR DESKTOP */
+@media screen and (min-width: 1030px) {
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  main .container__element--searchBar {
+    width: 30rem;
+  }
+  main .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}/*# sourceMappingURL=searchable.css.map */

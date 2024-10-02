@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% set queryParams = app.request.query.all %}
+
+{% block title %}{{ parent() }} - Salles de sports{% endblock %}
+{% block metaDescription %}<meta name="description" content="Vous êtes sur la page de gestion des structures. Vous avez accès à toutes les structures. Vous pouvez également faire une recherche dynamique afin de retrouver le nom de celle que vous cherchez. Ensuite, vous avez accès à des boutons afin de faire des modifications dessus.">{% endblock %}
+{% block javascripts2 %} 
+  <script src="{{ asset('assets/js/validationMessage.js') }}" defer></script>
+  <script src="{{ asset('assets/js/jQuery.js') }}" defer></script>
+  <script src="{{ asset('assets/js/searchable.js') }}" defer></script>
+{% endblock %}
+{% block body %}
+<body 
+  class="flex-column bg-black text-white"
+  style="
+    padding-top: 4rem;
+    width: 100%; 
+    background-attachment: fixed;
+    background-image: url({{ asset('assets/images/carousel10.jpg') }}); 
+    background-size: cover; 
+    background-position: center;
+  "
+>
+{% include "admin/_header.html.twig" %}
+{% block main %}
+<main class="container text-center">
+
+<h1 class="m-4">Gérer les salles de sports</h1>
+
+<div class="container row m-0 justify-content-center">
+  <div class="col col-sm-5 col-md-4 col-lg-3 container__element--searchBar">
+    <div class="row justify-content-center mb-4">
+      <div class="bg-black bg-opacity-50 rounded" style="min-width: 7rem; max-width: 30rem;">
+        <div class="m-3">
+          <label class="form-label" for="userFilter">Taper ici votre recherche</label>
+          <input type="text" name="user" id="userFilter" placeholder="Taper le nom de la structure">
+        </div>
+        <form id="filters">
+
+          {% set checkedAS= "" %}
+          {% set checkedIS= "" %}
+
+          {% if queryParams is not empty %}
+            {% set checkedAS = (queryParams.activeStructure|default("0")) ? "checked" : "" %}
+            {% set checkedIS = (queryParams.inactiveStructure|default("0")) ? "checked" : "" %}
+          {% endif %}
+
+          <p><input type="checkbox" name="activeStructure" id="activeStructure" value="true" {{checkedAS}}>
+          <label for="activeStructure">Structure Active</label></p>
+          <p><input type="checkbox" name="inactiveStructure" id="inactiveStructure" value="true" {{checkedIS}}>
+          <label for="inactiveStructure">Structure Inactive</label></p>
+        
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-sm-7 col-md-8 col-lg-9 container content row" id="filter">
+    {% include "admin/structures/_content.html.twig" %}
+  </div>
+</div>
+</main>
+{% endblock %}
+{% include "admin/_footer.html.twig" %}
+</body>
+{% endblock %}

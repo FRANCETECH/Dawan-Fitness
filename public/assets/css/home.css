@@ -1,0 +1,113 @@
+@-webkit-keyframes menuD1 {
+  0% {
+    opacity: 0;
+    height: 0rem;
+  }
+  100% {
+    opacity: 1;
+    height: 44rem;
+  }
+}
+@keyframes menuD1 {
+  0% {
+    opacity: 0;
+    height: 0rem;
+  }
+  100% {
+    opacity: 1;
+    height: 44rem;
+  }
+}
+@-webkit-keyframes menuD2 {
+  0% {
+    opacity: 0;
+    height: 0rem;
+  }
+  100% {
+    opacity: 1;
+    height: 25rem;
+  }
+}
+@keyframes menuD2 {
+  0% {
+    opacity: 0;
+    height: 0rem;
+  }
+  100% {
+    opacity: 1;
+    height: 25rem;
+  }
+}
+.main__item--category {
+  border: 0.3rem solid #043565;
+  border-radius: 0.3rem;
+  margin: 4rem 1rem 4rem 1rem;
+}
+.main__item--category h2 {
+  color: #043565;
+  font-family: "Pacifico", cursive;
+  font-size: 2.6rem;
+  text-align: center;
+}
+.main__item--category h2:hover {
+  cursor: s-resize;
+}
+.main__item--category #d1 {
+  -webkit-animation-name: menuD1;
+          animation-name: menuD1;
+  -webkit-animation-duration: 1.2s;
+          animation-duration: 1.2s;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+  display: none;
+}
+.main__item--category #d2 {
+  -webkit-animation-name: menuD2;
+          animation-name: menuD2;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+  display: none;
+}
+
+.main__item {
+  background-color: #8BD8BD;
+  border-radius: 1rem;
+  box-shadow: 1rem 1rem 1rem #000000;
+  font-size: 1rem;
+  text-align: center;
+  margin: 3rem 1rem 3rem 1rem;
+  padding: 2rem 1rem 2rem 1rem;
+}
+.main__item a:link {
+  color: #043565;
+}
+.main__item a:visited {
+  color: #043565;
+}
+
+/* RESPONSIVE */
+/* FOR I-PAD AND TABLET */
+@media screen and (min-width: 700px) {
+  .main__item--category {
+    margin: 4rem 5rem 4rem 5rem;
+  }
+  .main__item--category .main__item {
+    margin: 3rem 3rem 3rem 3rem;
+  }
+}
+@media screen and (min-width: 700px) and (orientation: landscape) {
+  .main__item {
+    margin: 3rem 4rem 3rem 4rem;
+  }
+}
+/* FOR DESKTOP */
+@media screen and (min-width: 1030px) {
+  .main__item--category {
+    margin: 5rem 8rem 5rem 8rem;
+  }
+  .main__item--category .main__item {
+    margin: 3rem 4rem 3rem 4rem;
+  }
+}/*# sourceMappingURL=home.css.map */

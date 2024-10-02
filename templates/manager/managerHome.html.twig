@@ -1,0 +1,152 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }}- Accueil manager{% endblock %}
+{% block metaDescription %}<meta name="description" content="Vous êtes sur la page d'accueil d'un responsable d'une salle de sport. Vous avez accès à toutes vos informations personnelles. Ainsi que la structure que vous gérez, et les permissions que vous avez pour vous et votre structure.">{% endblock %}
+{% block javascripts2 %} 
+  <script src="{{ asset('assets/js/validationMessage.js') }}" defer></script>
+{% endblock %}
+{% block body %}
+<body class="flex-column bg-black text-white" style="padding-top: 4rem;">
+<video src="{{ asset('assets/videos/Gym1280.mp4') }}" class="object-fit-fill" autoplay loop muted
+style ="
+height: 100vh;
+width: 100vw;
+object-fit: cover;
+position: fixed;
+left: 0;
+right: 0;
+top: 0;
+bottom: 0;
+z-index: -1;
+"
+type="video/mp4"
+></video>
+{% include "manager/_header.html.twig" %}
+{% block main %}
+<main class="container text-center">
+
+<h1 class="m-4">Accueil</h1>
+
+<div class="container row m-0 justify-content-center">
+  <div class="container content row">
+  
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
+      <div class="card mb-3 text-center h-100 bg-black bg-opacity-50 rounded" style="max-width: 20rem;">
+        <div class="card-header">
+          <h2 class="card-title fs-4">Informations personnelles</h2>
+        </div>
+        <div class="card-body">
+          <p><i class="bi bi-person-fill"></i> | {{ user.name }}</p>
+          <p><i class="bi bi-person-badge-fill"></i> |
+            {% if user.roles == ['ROLE_ADMIN', 'ROLE_MANAGER'] %}Administrateur
+            {% elseif user.roles == ['ROLE_PARTNER', 'ROLE_MANAGER'] %}Partenaire
+            {% else %}Manager
+            {% endif %}
+          </p>
+          <p><i class="bi bi-envelope-at-fill"></i> | {{ user.email }}</p>
+          <p><i class="bi bi-telephone-fill"></i> | {{ user.phoneNumber }}</p>
+          <p><i class="bi bi-calendar-plus-fill"></i> | {{ user.createdAt | date("d-m-Y") }}</p>
+          <p><i class="bi bi-activity"></i> | 
+            {% if user.isActive == 1 %}Oui{% else %}Non
+            {% endif %}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {% if user.permissionsUsers|length != 0 %}
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
+      <div class="card mb-3 text-center h-100 bg-black bg-opacity-50 rounded" style="max-width: 20rem;">
+        <div class="card-header">
+          <h2 class="card-title fs-4">
+            {% if user.permissionsUsers|length != 1 %}
+              Modules globaux
+            {% else %}
+              Module global
+            {% endif %}
+          </h2>
+        </div>
+        <div class="card-body">
+          {% for permission in user.permissionsUsers %}
+            <p><i class="bi bi-plugin"></i> | {{ permission.Permissions }}</p> 
+            <p><i class="bi bi-activity"></i> |
+              {% if permission.isActive == 1 %}Oui{% else %}Non
+              {% endif %}
+            </p>
+            <div>
+              {% if permission.isActive == 1 %}
+                <a onclick="return disableConfirm()" href="{{ path('disable_permission_manager', {idPermission : permission.Permissions.id}) }}" class="main__div--button btn btn-outline-light mb-3">Désactiver</a>
+              {% else %}
+                <a onclick="return enableConfirm()" href="{{ path('enable_permission_manager', {idPermission : permission.Permissions.id }) }}"  class="main__div--button btn btn-outline-light mb-3">Activer</a>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    {% for structure in user.structures %}
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
+      <div class="card mb-3 text-center h-100 bg-black bg-opacity-50 rounded" style="max-width: 20rem;">
+        <div class="card-header">
+          <h2 class="card-title fs-4">Salle de sport</h2>
+        </div>
+        <div class="card-body">
+          <p><i class="bi bi-house-fill"></i> | {{ structure.name }}</p>
+          <p><i class="bi bi-telephone-fill"></i> | {{ structure.phoneNumber }}</p>
+          <p><i class="bi bi-calendar-plus-fill"></i> | {{ structure.createdAt | date("d-m-Y") }}</p>
+          <p><i class="bi bi-activity"></i> | 
+            {% if structure.isActive == 1 %}Oui{% else %}Non
+            {% endif %}
+          </p>
+          <div>
+            {% if structure.isActive == 1 %}
+              <a onclick="return disableConfirm()" href="{{ path('disable_structure_manager', {idStructure : structure.id}) }}" class="main__div--button btn btn-outline-light">Désactiver</a>
+            {% else %}
+              <a onclick="return enableConfirm()" href="{{ path('enable_structure_manager', {idStructure : structure.id}) }}" class="main__div--button btn btn-outline-light">Activer</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% if structure.permissionsStructures|length != 0 %}
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
+      <div class="card mb-3 text-center h-100 bg-black bg-opacity-50 rounded" style="max-width: 20rem;">
+        <div class="card-header">
+          <h2 class="card-title fs-4">
+            {% if structure.permissionsStructures|length != 1 %}
+              Modules salle de sport
+            {% else %}
+              Module salle de sport
+            {% endif %}
+          </h2>
+        </div>
+        <div class="card-body">
+          {% for permissionStructure in structure.permissionsStructures %}
+            <p><i class="bi bi-plugin"></i> | {{ permissionStructure.permissions }}</p>
+            <p><i class="bi bi-activity"></i> |
+              {% if permissionStructure.isActive == 1 %}Oui{% else %}Non
+              {% endif %}
+            </p>
+            <div>
+              {% if permissionStructure.isActive == 1 %}
+                <a onclick="return disableConfirm()" href="{{ path('disable_permission_structure_manager', {idPermission : permissionStructure.permissions.id, idStructure : structure.id}) }}" class="main__div--button btn btn-outline-light mb-3">Désactiver</a>
+              {% else %}
+                <a onclick="return enableConfirm()" href="{{ path('enable_permission_structure_manager', {idPermission : permissionStructure.permissions.id, idStructure : structure.id}) }}"  class="main__div--button btn btn-outline-light mb-3">Activer</a>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+</main>
+{% endblock %}
+{% include "manager/_footer.html.twig" %}
+</body>
+{% endblock %}

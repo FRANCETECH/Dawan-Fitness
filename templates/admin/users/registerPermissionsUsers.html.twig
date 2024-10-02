@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - Ajout module à un utilisateur{% endblock %}
+{% block metaDescription %}<meta name="description" content="Vous êtes sur la page d'ajout de permissions pour un utilisateur. Suite à la création d'un utilisateur, vous allez pouvoir ajouter des permissions à l'utilisateur souhaité.">{% endblock %}
+{% block javascripts2 %} <script src="{{ asset('assets/js/formValidation.js') }}"></script> {% endblock %}
+{% block body %}
+<body 
+  class="flex-column bg-black text-white"
+  style="
+    padding-top: 4rem;
+    width: 100%; 
+    background-attachment: fixed;
+    background-image: url({{ asset('assets/images/carousel01.jpg') }}); 
+    background-size: cover; 
+    background-position: center;
+  "
+>
+{% include "admin/_header.html.twig" %}
+{% block main %}
+<main class="container text-center">
+<h1 class="m-4">Ajout module à un utilisateur</h1>
+<div class="container pt-3 pb-1 bg-black bg-opacity-50 rounded" style="max-width: 25rem;">
+{{ form(form) }}
+</div>
+</main>
+{% endblock %}
+{% include "admin/_footer.html.twig" %}
+</body>
+{% endblock %}

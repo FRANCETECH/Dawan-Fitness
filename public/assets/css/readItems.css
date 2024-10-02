@@ -1,0 +1,54 @@
+main {
+  padding: 1rem;
+}
+main div {
+  background-color: #8BD8BD;
+  border-radius: 1rem;
+  box-shadow: 1rem 1rem 1rem #000000;
+  color: #043565;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 2rem 1rem 0rem 1rem;
+  padding: 1rem;
+  text-align: center;
+}
+main div div {
+  background-color: #043565;
+  box-shadow: 0.4rem 0.4rem 0.4rem #000000;
+  margin: 1rem 3.5rem 1rem 3.5rem;
+  padding: 0.6rem;
+}
+main div .main__div--button:hover {
+  color: #ffffff;
+}
+
+.highlighted {
+  background-color: #2BA6CB;
+  color: #ffffff;
+}
+
+/* RESPONSIVE */
+/* FOR I-PAD AND TABLET */
+@media screen and (min-width: 700px) {
+  main div {
+    margin: 3rem 6rem 3rem 6rem;
+  }
+  main div div {
+    margin: 1rem 7rem 1rem 7rem;
+  }
+}
+@media screen and (min-width: 700px) and (orientation: landscape) {
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+/* FOR DESKTOP */
+@media screen and (min-width: 1030px) {
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}/*# sourceMappingURL=readItems.css.map */

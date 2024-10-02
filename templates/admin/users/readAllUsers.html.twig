@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% set queryParams = app.request.query.all %}
+
+{% block title %}{{ parent() }} - Utilisateurs{% endblock %}
+{% block metaDescription %}<meta name="description" content="Vous êtes sur la page de gestion des utilisateurs. Vous avez accès à tous les utilisateurs. Vous pouvez également faire une recherche dynamique afin de retrouver le nom de celui que vous cherchez. Ensuite, vous avez accès à des boutons afin de faire des modifications dessus.">{% endblock %}
+{% block javascripts2 %} 
+  <script src="{{ asset('assets/js/validationMessage.js') }}" defer></script>
+  <script src="{{ asset('assets/js/jQuery.js') }}" defer></script>
+  <script src="{{ asset('assets/js/searchable.js') }}" defer></script>
+{% endblock %}
+{% block body %}
+<body 
+  class="flex-column bg-black text-white"
+  style="
+    padding-top: 4rem;
+    width: 100%; 
+    background-attachment: fixed;
+    background-image: url({{ asset('assets/images/carousel08.jpg') }}); 
+    background-size: cover; 
+    background-position: center;
+  "
+>
+{% include "admin/_header.html.twig" %}
+{% block main %}
+<main class="container text-center">
+
+<h1 class="m-4">Gérer les utilisateurs</h1>
+
+<div class="container row m-0 justify-content-center">
+  <div class="col col-sm-5 col-md-4 col-lg-3 container__element--searchBar">
+    <div class="row justify-content-center mb-4">
+      <div class="bg-black bg-opacity-50 rounded" style="min-width: 7rem; max-width: 30rem;">
+        <div class="m-3">
+          <label class="form-label" for="userFilter">Taper ici votre recherche</label>
+          <input type="text" class="form-control" name="user" id="userFilter" placeholder="Taper le nom de l'utilisateur">
+        </div>
+        <form id="filters">
+
+          {% set checkedAU= "" %}
+          {% set checkedIU= "" %}
+          {% set checkedP= "" %}
+          {% set checkedM= "" %}
+          {% set checkedA= "" %}
+
+          {% if queryParams is not empty %}
+            {% set checkedAU = (queryParams.activeUser|default("0")) ? "checked" : "" %}
+            {% set checkedIU = (queryParams.inactiveUser|default("0")) ? "checked" : "" %}
+            {% set checkedP = (queryParams.partner|default("0")) ? "checked" : "" %}
+            {% set checkedM = (queryParams.manager|default("0")) ? "checked" : "" %}
+            {% set checkedA = (queryParams.admin|default("0")) ? "checked" : "" %}
+          {% endif %}
+          <div class="col mb-3">
+            <h5 class="border-bottom">Filtres utilisateurs</h5>
+            <div class="col">
+              <div class="mt-3 mb-3">
+                <input type="checkbox" name="activeUser" id="activeUser" value="true" {{checkedAU}}>
+                <label for="activeUser">Utilisateur Actif</label>
+              </div>
+              <div class="mb-3">
+                <input type="checkbox" name="inactiveUser" id="inactiveUser" value="true" {{checkedIU}}>
+                <label for="inactiveUser">Utilisateur Inactif</label>
+              </div>
+              <div class="mb-3">
+                <input type="checkbox" name="admin" id="admin" value="true" {{checkedA}}>
+                <label for="admin">Administrateur</label>
+              </div>
+              <div class="mb-3">
+                <input type="checkbox" name="partner" id="partner" value="true" {{checkedP}}>
+                <label for="partner">Partenaire</label>
+              </div>
+              <div class="mb-3">
+                <input type="checkbox" name="manager" id="manager" value="true" {{checkedM}}>
+                <label for="manager">Manager</label>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-sm-7 col-md-8 col-lg-9 container content row" id="filter">
+    {% include "admin/users/_content.html.twig" %}
+  </div>
+</div>
+</main>
+{% endblock %}
+{% include "admin/_footer.html.twig" %}
+</body>
+{% endblock %}

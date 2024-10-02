@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - Modification utilisateur{% endblock %}
+{% block metaDescription %}<meta name="description" content="Vous êtes sur la page de modification d'un utilisateur. Vous avez accès au formulaire de modification. Si vous souhaitez modifier quelque chose, alors vous êtes sur la bonne page.">{% endblock %}
+{% block javascripts2 %} <script src="{{ asset('assets/js/formValidation.js') }}"></script> {% endblock %}
+
+{% block body %}
+<body 
+  class="flex-column bg-black text-white"
+  style="
+    padding-top: 4rem;
+    width: 100%; 
+    background-attachment: fixed;
+    background-image: url({{ asset('assets/images/carousel01.jpg') }}); 
+    background-size: cover; 
+  "
+>
+{% include "admin/_header.html.twig" %}
+{% block main %}
+<main class="container text-center">
+<h1 class="m-4">Modifier un utilisateur</h1>
+<div class="container pt-3 pb-1 bg-black bg-opacity-75 p-4" style="max-width: 30rem;">
+  {{ form_start(form) }}
+    <div class="border-bottom">
+    <h3>Informations personnelles</h3>
+    <div class="row mb-3">
+      <div class="col">
+        {{ form_row(form.name) }}
+      </div>
+      <div class="col">
+        {{ form_row(form.email) }}
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col">
+        {{ form_row(form.phone_number) }}
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col">
+        {{ form_row(form.password) }}
+      </div>
+    </div>
+    </div>
+    <div class="mt-3">
+    <h3>Type de compte et salle de sport</h3>
+    <div class="row mb-3">
+      <div class="col">
+        {{ form_label(form.roles, 'Choisir le type du compte') }}
+        {{ form_widget(form.roles) }}
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col">
+        {{ form_label(form.structures, 'Choisir la salle de sport') }}
+        {{ form_widget(form.structures) }}
+      </div>
+    </div>
+    </div>
+  {{ form_end(form) }}
+</div>
+</main>
+{% endblock %}
+{% include "admin/_footer.html.twig" %}
+</body>
+{% endblock %}
+

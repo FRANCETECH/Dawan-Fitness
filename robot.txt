@@ -1,0 +1,26 @@
+User-agent: *
+
+Disallow: /bin
+Disallow: /config
+Disallow: /documentation
+Disallow: /migrations
+Disallow: /src
+Disallow: /templates/admin/structures/_content.html.twig
+Disallow: /templates/admin/users/_content.html.twig
+Disallow: /templates/emails
+Disallow: /templates/manager/_content.html.twig
+Disallow: /templates/security/login.html.twig
+Disallow: /templates/security/logout.html.twig
+Allow: /templates
+Disallow: /var
+Disallow: /vendor
+Disallow: /.env
+Disallow: /.gitignore
+Disallow: /base_de_données.sql
+Disallow: /composer.json
+Disallow: /composer.lock
+Disallow: /docker-composer.override.yml
+Disallow: /docker-composer.yml
+Disallow: /Procfile
+Disallow: README.md
+Disallow: symfony.lock

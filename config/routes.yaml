@@ -1,0 +1,9 @@
+controllers:
+    resource: ../src/Controller/
+    type: attribute
+    defaults:
+        schemes: [https]
+login:
+    path: /
+    controller: App\Controller\SecurityController::login
+    schemes: [https]

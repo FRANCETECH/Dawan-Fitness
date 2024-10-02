@@ -1,0 +1,35 @@
+{
+  "scripts": {
+    "dev-server": "encore dev-server",
+    "dev": "encore dev",
+    "watch": "encore dev --watch",
+    "build": "encore production --progress",
+    "asset": "build-asset \"src/public/**/*\" -i src/public -o dist -v 1.0.0 -n public",
+    "asset-watch": "build-asset \"src/public/**/*\" -i src/public -o dist -v 1.0.0 -n public -w"
+  },
+  "browsersList": [
+    "defaults"
+  ],
+  "devDependencies": {
+    "@popperjs/core": "^2.11.6",
+    "@symfony/webpack-encore": "^4.2.0",
+    "autoprefixer": "^10.4.13",
+    "bootstrap": "^5.2.3",
+    "build-asset": "^2.0.6",
+    "css-loader": "^6.7.3",
+    "file-loader": "^6.2.0",
+    "jquery": "^3.6.3",
+    "postcss-loader": "^7.0.2",
+    "sass": "^1.57.1",
+    "sass-loader": "^13.2.0",
+    "style-loader": "^3.3.1",
+    "webpack-cli": "^5.0.1",
+    "webpack-notifier": "^1.15.0"
+  },
+  "dependencies": {
+    "bootstrap-icons": "^1.10.3"
+  },
+  "engines": {
+    "node": "16.x"
+  }
+}

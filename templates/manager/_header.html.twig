@@ -1,0 +1,40 @@
+{% block header %}
+  <div class="container">
+    <header class="navbar navbar-dark navbar-expand-lg fixed-top bg-black bg-opacity-50">
+      <div class="container-fluid">
+        <a href="{{ path('app_login')}}" class="col-md-3 mb-2 mb-md-0 text-decoration-none text-center">
+          <img src="{{ asset('assets/images/icons/dawan.png') }}" alt="Logo de l'orange bleue" class="rounded-circle" height="50" width="50">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end text-bg-dark bg-black bg-opacity-75" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body justify-content-around">
+            <ul class="navbar-nav nav col-12 col-md-auto mb-2 mb-md-0">
+              <li><a href="{{ path('app_login') }}" class="nav-link px-2 active" aria-current="page">Accueil</a></li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle px-2 disabled" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Création
+                </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle px-2 disabled" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Gestion
+                </a>
+              </li>
+              <li><a href="/manager/searchable/" class="nav-link px-2 active">Recherche</a></li>
+              <li><a href="/CGU" class="nav-link px-2 active">CGU</a></li>
+            </ul>
+            <div class="d-flex px-2">
+              <a href="{{ path('app_logout') }}" class="btn btn-outline-light me-2">Déconnexion</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+{% endblock %}

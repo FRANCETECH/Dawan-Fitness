@@ -1,0 +1,99 @@
+$first-color: #043565;
+$second-color: #ffaf1b;
+$third-color: #8BD8BD;
+$four-color: #000000;
+
+@keyframes menuD1 {
+  0% {
+    opacity: 0;
+    height: 0rem;
+  }
+  100% {
+    opacity: 1;
+    height: 44rem;
+  }
+}
+
+@keyframes menuD2 {
+  0% {
+    opacity: 0;
+    height: 0rem;
+  }
+  100% {
+    opacity: 1;
+    height: 25rem;
+  }
+}
+
+.main__item--category {
+  border: 0.3rem solid $first-color;
+  border-radius: 0.3rem;
+  margin: 4rem 1rem 4rem 1rem;
+
+  h2 {
+    color: $first-color;
+    font-family: 'Pacifico', cursive;
+    font-size: 2.6rem;
+    text-align: center;
+
+    &:hover {
+      cursor: s-resize;
+    }
+  }
+
+  #d1 {
+    animation-name: menuD1;
+    animation-duration: 1.2s;
+    animation-play-state: paused;
+    display: none;
+  }
+
+  #d2 {
+    animation-name: menuD2;
+    animation-duration: 1s;
+    animation-play-state: paused;
+    display: none;
+  }
+}
+.main__item {
+  background-color: $third-color;
+  border-radius: 1rem;
+  box-shadow: 1rem 1rem 1rem $four-color;
+  font-size: 1rem;
+  text-align: center;
+  margin: 3rem 1rem 3rem 1rem;
+  padding: 2rem 1rem 2rem 1rem;
+
+  a:link {
+    color: $first-color;
+  }
+
+  a:visited {
+    color: $first-color;
+  }
+}
+
+/* RESPONSIVE */
+/* FOR I-PAD AND TABLET */
+@media screen and (min-width: 700px) {
+  .main__item--category {
+    margin: 4rem 5rem 4rem 5rem;
+    .main__item {
+      margin: 3rem 3rem 3rem 3rem;
+    }
+  }
+}
+@media screen and (min-width: 700px) and (orientation: landscape) {
+  .main__item {
+    margin: 3rem 4rem 3rem 4rem;
+  }
+}
+/* FOR DESKTOP */
+@media screen and (min-width: 1030px) {
+  .main__item--category {
+    margin: 5rem 8rem 5rem 8rem;
+    .main__item {
+      margin: 3rem 4rem 3rem 4rem;
+    }
+  }
+}

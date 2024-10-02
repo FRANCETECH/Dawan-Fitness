@@ -1,0 +1,141 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }}- Accueil admin{% endblock %}
+{% block metaDescription %}<meta name="description" content="Vous êtes sur la page d'accueil d'un administrateur. Vous avez accès à toute la gestion des données de cette application. Vous allez pouvoir créer, modifier et supprimer tout ce que vous souhaitez. C'est à partir de là que vous pourrez créer un nouvel utilisateur.">{% endblock %}
+{% block body %}
+<body 
+  class="flex-column bg-black text-white" 
+  style="padding-top: 4rem;"
+>
+<video src="{{ asset('assets/videos/Gym1280.mp4') }}" class="object-fit-fill" autoplay loop muted
+style ="
+height: 100vh;
+width: 100vw;
+object-fit: cover;
+position: fixed;
+left: 0;
+right: 0;
+top: 0;
+bottom: 0;
+z-index: -1;
+"
+type="video/mp4"
+></video>
+{% include "admin/_header.html.twig" %}
+{% block main %}
+<main class="container">
+<h1 class="text-center m-4">Accueil</h1>
+<div class="container px-4 py-5 bg-black bg-opacity-50 rounded" id="hanging-icons" >
+    <h2 class="pb-2 border-bottom">Création</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+      <div class="col d-flex align-items-start">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <i class="bi bi-building-fill-add bg-white" style="color: black;"></i>
+        </div>
+        <div>
+          <h3 class="fs-2">Nouvelle salle de sport</h3>
+          <p>Vous venez de signer un nouveau contrat avec un franchisé. Veuillez tout d'abord créer la salle de sport en cliquant sur le bouton ci-dessous.</p>
+          <a href="/admin/register/structure" class="btn btn-outline-light">
+            Créer salle de sport
+          </a>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <i class="bi bi-person-plus-fill bg-white" style="color: black;"></i>
+        </div>
+        <div>
+          <h3 class="fs-2">Nouvel utilisateur</h3>
+          <p>Vous venez de signer un nouveau contrat et vous avez créer la salle de sport correspondante ? Cliquez sur le bouton ci-dessous afin de créer ce nouveau franchisé. Ou alors vous venez de recruter un nouveau membre dans votre équipe technique que vous souhaitez rajouter ?</p>
+          <a href="/admin/register/user" class="btn btn-outline-light">
+            Créer utilisateur
+          </a>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <i class="bi bi-link-45deg bg-white" style="color: black"></i>
+        </div>
+        <div>
+          <h3 class="fs-2">Ajouter un module à un utilisateur</h3>
+          <p>Vous avez créé un nouvel utilisateur ? Vous pouvez rattacher un module à celui-ci. Cliquez ici pour en savoir plus.</p>
+          <a href="/admin/register/permissions-users" class="btn btn-outline-light">
+            Ajout module <i class="bi bi-arrow-right"></i> franchisé
+          </a>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <i class="bi bi-link-45deg bg-white" style="color: black;"></i>
+        </div>
+        <div>
+          <h3 class="fs-2">Ajouter un module à une salle de sport</h3>
+          <p>Vous avez créé une nouvelle salle de sport ? Vous pouvez rattacher un module à celle-ci. Sur le bouton, vous pouvez cliquer et vous aurez accès.</p>
+          <a href="/admin/register/permissions-structures" class="btn btn-outline-light">
+            Ajout module <i class="bi bi-arrow-right"></i> structure
+          </a>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <i class="bi bi-plugin bg-white" style="color: black;"></i>
+        </div>
+        <div>
+          <h3 class="fs-2">Nouveau module</h3>
+          <p>Vous venez de créer un nouveau module. C'est par ici que ça se passe. Afin de raccorder ce module à un franchisé, vous devez d'abord le créer.</p>
+          <a href="/admin/register/permission" class="btn btn-outline-light">
+            Créer module
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+
+  <div class="container px-4 py-5 bg-black bg-opacity-50 rounded" id="hanging-icons">
+    <h2 class="pb-2 border-bottom">Gestion</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+      <div class="col d-flex align-items-start">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <i class="bi bi-people-fill bg-white" style="color: black;"></i>
+        </div>
+        <div>
+          <h3 class="fs-2">Gestion des utilisateurs</h3>
+          <p>Vous souhaitez faire une modification, activer ou désactiver un utilisateur ? Ou vous souhaitez le supprimer ? Alors vous êtes au bon endroit. Veuillez cliquer sur le bouton ci-dessous.</p>
+          <a href="/admin/user/read-all" class="btn btn-outline-light">
+            Gérer les utilisateurs
+          </a>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <i class="bi bi-buildings-fill bg-white" style="color: black;"></i>
+        </div>
+        <div>
+          <h3 class="fs-2">Gestion des salles de sports</h3>
+          <p>Vous souhaitez faire une modification, activer ou désactiver une salle de sport ? Ou vous souhaitez la supprimer ? Alors vous êtes au bon endroit. Veuillez cliquer sur le bouton ci-dessous.</p>
+          <a href="/admin/structure/read-all" class="btn btn-outline-light">
+            Gérer les salles de sports
+          </a>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <i class="bi bi-diagram-3-fill bg-white" style="color: black;"></i>
+        </div>
+        <div>
+          <h3 class="fs-2">Gestion des modules</h3>
+          <p>Vous souhaitez faire une modification, activer ou désactiver un module ? Ou vous souhaitez le supprimer ? Alors vous êtes au bon endroit. Veuillez cliquer sur le bouton ci-dessous.</p>
+          <a href="/admin/permission/read-all" class="btn btn-outline-light">
+            Gérer les modules
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}
+{% include "admin/_footer.html.twig" %}
+</body>
+{% endblock %}
